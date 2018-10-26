@@ -53,7 +53,17 @@ class AlgoStrategy(gamelib.AlgoCore):
         gamelib.debug_write('Performing turn {} of your custom algo strategy'.format(game_state.turn_number))
         #game_state.suppress_warnings(True)  #Uncomment this line to suppress warnings.
 
-        self.starter_strategy(game_state)
+        #self.starter_strategy(game_state)
+
+        destructor_locations = [[ 2, 13],[ 22, 13],[ 25, 13],[ 26, 13],[ 3, 12],[ 10, 12],[ 17, 12]]
+        filter_locations = [[ 3, 13],[ 10, 13],[ 17, 13],[ 23, 13],[ 24, 13],[ 22, 12],[ 22, 11]]
+        encryptor_locations = [[ 23, 12],[ 24, 12],[ 23, 11],[ 24, 11]]
+        emp_location = [23, 9]
+
+        game_state.attempt_spawn(DESTRUCTOR, destructor_locations)
+        game_state.attempt_spawn(FILTER, filter_locations)
+        game_state.attempt_spawn(ENCRYPTOR, encryptor_locations)
+        game_state.attempt_spawn(EMP, emp_location)
 
         game_state.submit_turn()
 
